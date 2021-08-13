@@ -6,11 +6,11 @@
     <p></p>
     <img src="https://media.giphy.com/media/l3V0dy1zzyjbYTQQM/giphy.gif">
       <ol>
-    <li>Assignment Week2: <a href= "./Assignment_2.1/index.html"  target="_blank">About Me</a></li>
-    <li>Assignment Week3: <a href= "./Assignment_3.1/index.html"  target="_blank">Function Solution</a></li>
-    <li>Assignment Week4: <a href= "./Assignment_4.1/index.html"  target="_blank">Ghibli Films Clickable List</a></li>
-    <li>Assignment Week5: <a href= "./Assignment_5.1/index.html"  target="_blank">Mobile Vendor Market Share Worldwide Bar Chart</a></li>
-    <li>Assignment Week6: <a href= "./Assignment_6.1/index.html"  target="_blank">Ghibli Films Search Filter</a></li>
+    <li>Assignment Week2: <a v-bind:href= "./Assignment_2.1/index.html"  target="_blank">About Me</a></li>
+    <li>Assignment Week3: <a v-bind:href= "./Assignment_3.1/Assignment3-functions.html"  target="_blank">Function Solution</a></li>
+    <li>Assignment Week4: <a v-bind:href= "./Assignment_4.1/index.html"  target="_blank">Ghibli Films Clickable List</a></li>
+    <li>Assignment Week5: <a v-bind:href= "./Assignment_5.1/index.html"  target="_blank">Mobile Vendor Market Share Worldwide Bar Chart</a></li>
+    <li>Assignment Week6: <a v-bind:href= "./Assignment_6.1/index.html"  target="_blank">Ghibli Films Search Filter</a></li>
   </ol>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <footer>You can find me @ <a href="https://www.linkedin.com/in/zora-hsiangyun-w-513b4441/" class="fa fa-linkedin" target="_blank"></a>
