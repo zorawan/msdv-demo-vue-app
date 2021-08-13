@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function truncate_string(str,n){
+      return str.slice(0, n);
+    }
+
+    function string_parameterize(str){
+      let newStr= str.toLowerCase().replace(" ","-");
+      return newStr;
+    }
+
+    function sum_of_odd_numbers(i,j){
+      let sum =0
+      for(let l =i; l<=j; l+=2 ){
+        sum+=l;
+      }
+    return sum;
+    }
+
+    function celcius_to_fahrenheit(i){
+      let Fahrenheit= i*9/5+32;
+      return Fahrenheit;
+    }
+
+    function sum_of_array(arr){
+    var sum = 0;
+    for (let i=0; i< arr.length;i++) {
+      sum= sum+arr[i]
+    }
+    return sum;
+}
+
+
+    function mean_of_array(arr){
+      var sum =0;
+      for(let i =0; i<arr.length; i++){
+        sum=sum+arr[i]
+      }
+      return sum/arr.length
+    }
+
+    function only_positive(arr){
+    
+        return arr.filter(function(value){
+          return value>0;
+        });
+      }
+     
+
+    /*
+      === TESTS ===
+      These will print out "true/false" statements
+      in your console so you know if you have the
+      correct solution. 
+    */
+    console.log('Truncate String: ' + (truncate_string("Hello, World",5) === 'Hello'))
+    console.log('String Parameterize: ' + (string_parameterize("Lorem Ipsum") === 'lorem-ipsum'))
+    console.log('Sum of Odd Num #1: ' + (sum_of_odd_numbers(1,3) === 4))
+    console.log('Sum of Odd Num #2: ' + (sum_of_odd_numbers(5,20) === 96))
+    console.log('Celcius: ' + (celcius_to_fahrenheit(40) === 104))
+    console.log('Sum of Array #1: ' + (sum_of_array([1,1,2]) === 4))
+    console.log('Sum of Array #2: ' + (sum_of_array([1,1,2,5,5]) === 14))
+    console.log('Mean of Array #1: ' + (Number.parseFloat(mean_of_array([1,1,2])).toFixed(1) === "1.3"))
+    console.log('Mean of Array #2: ' + (Number.parseFloat(mean_of_array([1,1,2,5,5])).toFixed(1) === "2.8"))
+    console.log('Only Positive #1: ' + (JSON.stringify(only_positive([1,-100,2,-2])) === '[1,2]'))
+    console.log('Only Positive #2: ' + (JSON.stringify(only_positive([1,-1,-2,58,24])) === '[1,58,24]'))
+ 
+  </script>
+</body>
+</html>
