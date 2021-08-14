@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" contentw="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!--<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+-->
+
+ <title>Ghibli Films</title>
+
+  <style>
+    body{ font-family:'Montserrat', san-serif;
+          text-align: left;
+          flex-direction: column;
+          background-color:#FFFFF3;
+          padding:100px;
+  }
+    h1{
+      font-size: 36px;
+      color:#000000;
+    }
+    p{
+      line-height: 1.5em;
+      color:#000000;
+    }
+     
+     #title{
+       font-weight:700;
+       line-height: 3;
+       padding-top:10px;
+       padding-bottom:10px;
+
+       border-width: 1px;
+       font-size:2em;
+     }
+     #list{
+       padding-left:0px;
+       margin-left:0px;
+       
+     }
+    #Title{
+        font-weight: bold;
+    }
+    .demo {
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 20px 30px;
+  margin-top: 1em;
+  margin-bottom: 40px;
+  user-select: none;
+  overflow-x: auto;
+  line-height:2em;
+  list-style-type: none;
+}
+#description{
+    padding-bottom:40px;
+    border-bottom-style: solid;
+    border-color:#85857a;
+    border-width: 1px;
+}
+#te{
+    height:36px;
+    font-style: inherit;
+    background-color:#fff;
+    padding-left: 4px;
+    border-radius:5px;
+    width:300px;
+    border-style: solid;
+}
+#director, #producer{
+    font-weight: 700;
+}
+input{
+       border:2px solid #eee;
+       
+    }
+input:focus {
+    outline: none !important;
+    border:2px solid #8CD790;
+    color: #8CD790;
+  }
+input::placeholder{
+  color: #8CD790;
+}
+span{
+    color:#548687;
+}
+  </style>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3.0.0"></script>
+    <script src="studio-ghibli-films.js" type="module"></script>
+
+    <h1>Ghibli Films</h1>
+
+    <main>
+        <div id="array-rendering">
+        <input type="text" v-model="search" placeholder="Search films' Title" id=te />    
+        <ul  class="demo">
+        <li v-for="item in filteredItems" :key="item.title">
+        <div id=title>{{ item.title }}</div>
+        <div id=director>Director: <span>{{item.director}}</span></div>
+        <div id=producer>Producer: <span>{{item.producer}}</span></div>
+        <div id=description>{{item.description}}</div>
+        </li>
+        </ul>
+         </div>
+    </main>
+
+</body>
+</html>

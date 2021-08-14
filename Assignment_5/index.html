@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" contentw="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+  <title>Mobile Vendor Market Share Worldwide</title>
+
+    <style>
+        body{ font-family:'Montserrat', san-serif;
+              text-align: left;
+              flex-direction: column;
+              background-color:#EFFFE9;
+              padding:50px;
+              }
+        p1{
+            font:#011627;
+        }
+        p2{
+            font:#011627;
+        }
+        #xAxis, #yAxis{
+            font-family:'Montserrat', san-serif;
+            font-size:14px;
+        }
+        #xAxis line, text, path{
+            stroke:#2EC4B6;
+        }
+        #yAxis line, text, path{
+            stroke:#2EC4B6;
+        }
+        #tooltip{
+            background:#E71D36;
+            color:#EFFFE9;
+            padding:10px;
+            margin:10px;
+            position:absolute;
+            display:none;
+            border-radius: 8px;
+        }
+    </style>
+    <script src="d3.js"></script>
+    <script src="MyData.js"></script>
+</head>
+<body>
+    <h1>Mobile Vendor Market Share Worldwide</h1>
+    <h2>June 2020 - June 2021</h2>
+        <div id="tooltip">
+        Tooltip        
+    </div>
+    <svg id="Container" height = "600" width="1440">
+        <g id="body" style= "transform:translate(80px,0px)">
+        <g id="yAxis"></g>
+        <g id="xAxis"></g>
+    </svg>
+
+</body>
+
+<script>
+/* global d3 */
+/* global MyData */
+    let body = d3.select("#body");
+   //d3.js("Mydata.js").then(showData)
+    //loadData().then(showData)
+    function showTooltip(text, coords){
+        console.log("show: " + coords[1])
+        d3.select("#tooltip")
+            .style("top",coords[1] + "px")
+            .style("left",coords[0] + "px")
+            .style("display","block")
+            .text(text)
+         
+    }
+    function showData(clients){
+
+        let max = d3.max(clients, d=> d.value)
+        let scale = d3.scaleLinear()
+            .range([0,1200])
+            .domain([0,50])
+
+        let scalePosition = d3.scaleBand()
+          .range([0,600])
+          .domain(clients.map(d=>d.name))
+          
+          scalePosition
+            .padding(0.5)
+            .paddingOuter(0.8)
+
+
+        let join = body
+            .selectAll("rect")
+            .data(clients)
+
+            join.enter()
+            .append("rect")
+            .text(d=> d.name)
+            .style("fill", "#2EC4B6")
+            .style("padding","5px")
+            .style("color", "white")
+            .style("width", d=> scale(d.value))
+            .attr("height",scalePosition.bandwidth())
+            .attr("y", d=> scalePosition(d.name))
+            .on("mouseover", function(){
+                this.style.fill ="#E71D36"
+            })
+            .on("mouseout", function(){
+                this.style.fill ="#2EC4B6"
+            })
+            .on("mouseenter",d => {
+                console.log("x: " + d3.event.clientX + "; y: " + d3.event.clientY)
+                showTooltip(d.name + ": "+ d.value, [d3.event.clientX, d3.event.clientY])
+            })
+            .on("mousemove",d => {
+                showTooltip(d.name + ": "+ d.value + "%", [d3.event.clientX,d3.event.clientY])
+            })
+            .on("mouseleave",d => {
+                d3.select("#tooltip").style("display","none")
+            })
+        
+        let tooltip = d3.select("#box").append("g")
+        
+
+        let xAxis = d3.axisBottom(scale)
+            .ticks(5)
+            .tickFormat(d=>d+"%")
+            .tickSize(6)
+            .tickPadding(10)
+          
+
+            
+        d3.select("#xAxis").call(xAxis)
+        
+        let yAxis = d3.axisLeft(scalePosition)
+             .tickSize(0)
+             .tickPadding(8)
+    
+    
+        
+        d3.select("#yAxis").call(yAxis)
+    }
+
+    showData(MyData)
+
+
+</script>
+</html>
