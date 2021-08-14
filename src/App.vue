@@ -2,10 +2,14 @@
 
   <div id="app">
     <h1>Zora's Summer Workshop Assignments</h1>
-    <h3>I am so happy that I was able to learn coding this summer, and I am glad I completed the course!"</h3>
+    <h3>"I am so happy that I was able to learn coding this summer, and I am glad I completed the course!"</h3>
     <img src="https://media.giphy.com/media/l3V0dy1zzyjbYTQQM/giphy.gif" id=mainImg>
       <ol>
-        <a href="/Assignment_2/index.html/">About Me</a>
+        <li>Assignment Week 2: <a href="/Assignment_2/" target="_blank">About Me</a></li>
+        <li>Assignment Week 3: <a href="/Assignment_3/" target="_blank">function Solutions</a></li>
+        <li>Assignment Week 4: <a href="/Assignment_4/" target="_blank">Ghibli Films Clickable List</a></li>
+        <li>Assignment Week 5: <a href="/Assignment_5/" target="_blank">Mobile Vendor Market Share Worldwide Bar Chart</a></li>
+        <li>Assignment Week 6: <a href="/Assignment_6/" target="_blank">Ghibli Films Search Filter</a></li>
   </ol>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <footer>You can find me @ <a href="https://www.linkedin.com/in/zora-hsiangyun-w-513b4441/" class="fa fa-linkedin" target="_blank"></a>
@@ -19,8 +23,7 @@
 export default {
   name: 'App',
   components: {
-  },
-  
+  }
 };
 </script>
 
